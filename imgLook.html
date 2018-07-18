@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>预览图片</title>
+	<link rel="stylesheet" href="css/imgLook.css">
+</head>
+<body>
+	
+	<div class="imgLook">
+		<button type="button" id="add">新增一条</button>
+
+		<ul class="imgLookBox" id="imgLook">
+			<!-- 包含imgList为可预览 -->
+			<li class="imgList">
+				<img src="images/1.jpg" alt=""><span>我是图片一的介绍</span>
+				<div class="options"><span class="previewBtn">预览</span><span class="downloadBtn">下载</span><span class="deleteBtn">删除</span></div>
+			</li>
+			<li class="imgList">
+				<img src="images/2.jpg" alt=""><span>我是图片二的介绍</span>
+				<div class="options"><span class="previewBtn">预览</span><span class="downloadBtn">下载</span><span class="deleteBtn">删除</span></div>
+			</li>
+			<li class="imgList">
+				<img src="images/3.jpg" alt=""><span>我是图片三的介绍</span>
+				<div class="options"><span class="previewBtn">预览</span><span class="downloadBtn">下载</span><span class="deleteBtn">删除</span></div>
+			</li>
+			<li class="imgList">
+				<img src="images/4.jpg" alt=""><span>我是图片四的介绍</span>
+				<div class="options"><span class="previewBtn">预览</span><span class="downloadBtn">下载</span><span class="deleteBtn">删除</span></div>
+			</li>
+			<li class="imgList">
+				<img src="images/5.jpg" alt=""><span>我是图片五的介绍</span>
+				<div class="options"><span class="previewBtn">预览</span><span class="downloadBtn">下载</span><span class="deleteBtn">删除</span></div>
+			</li>
+			<li >
+				<img src="images/6.jpg" alt=""><span>我的li上没加class="imgList",所以我不能预览</span>
+				<div class="options"><span class="previewBtn">预览</span><span class="downloadBtn">下载</span><span class="deleteBtn">删除</span></div>
+			</li>
+		</ul>
+		<div class="imgMask" id="imgMask">
+			<div class="imgOpenBox" id="imgOpen">
+				<img src="" alt="">
+				<i id="imgClose">×</i>
+				<div class="prevBtn"><div class="arrLeft"></div></div>
+				<div class="nextBtn"><div class="arrRight"></div></div>
+			</div>
+		</div>
+	</div>
+	<iframe id="frame1" style="display:none"></iframe>
+	<script src="js/imgLook.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript" charset="utf-8">
+		// 参数依次为图片所在容器id/弹出框容器id/尺寸(最小宽，最小高，最大宽，最大高)不限顺序
+		new Preview();
+		// new Preview("imgLook","imgOpen",{"minWidth":"200","maxWidth":"1000","minHeight":"200","maxHeight":"450"},"imgClose");
+		var bt = document.getElementById("add");
+		bt.onclick = function(){
+			var li = document.createElement("li");
+			li.className = "imgList";
+			li.innerHTML = '<img src="images/7.jpg" alt=""><span>我是新增的预览</span><div class="options"><span class="previewBtn">预览</span><span class="downloadBtn">下载</span><span class="deleteBtn">删除</span></div>';
+			var box = document.getElementById("imgLook");
+				box.appendChild(li);
+		}
+	</script>
+</body>
+</html>
