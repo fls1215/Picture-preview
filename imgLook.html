@@ -14,7 +14,7 @@
 		<ul class="imgLookBox" id="imgLook">
 			<!-- 包含imgList为可预览 -->
 			<li class="imgList">
-				<img src="images/1.jpg" alt=""><span>我是图片一的介绍</span>
+				<img src="http://img.zcool.cn/community/0142135541fe180000019ae9b8cf86.jpg@1280w_1l_2o_100sh.png" alt=""><span>我是图片一的介绍</span>
 				<div class="options"><span class="previewBtn">预览</span><span class="downloadBtn">下载</span><span class="deleteBtn">删除</span></div>
 			</li>
 			<li class="imgList">
@@ -50,9 +50,8 @@
 	<iframe id="frame1" style="display:none"></iframe>
 	<script src="js/imgLook.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript" charset="utf-8">
-		// 参数依次为图片所在容器id/弹出框容器id/尺寸(最小宽，最小高，最大宽，最大高)不限顺序
+		// 参数依次为图片所在容器id/弹出框容器id/尺寸不限顺序(最小宽，最小高，最大宽，最大高)
 		new Preview();
-		// new Preview("imgLook","imgOpen",{"minWidth":"200","maxWidth":"1000","minHeight":"200","maxHeight":"450"},"imgClose");
 		var bt = document.getElementById("add");
 		bt.onclick = function(){
 			var li = document.createElement("li");

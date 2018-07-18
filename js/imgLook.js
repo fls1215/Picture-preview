@@ -6,7 +6,7 @@
  */
 
  (function(win,doc){  
- 	var Preview = function(boxId,openBoxId,size,closeId){//boxId是图片容器的id,openBoxId是预览弹框的id,size包含弹出框的最大最小宽，宽等高
+ 	var Preview = function(boxId,openBoxId,closeId,size){//boxId是图片容器的id,openBoxId是预览弹框的id,size包含弹出框的最大最小宽，宽等高
  		this.box       = doc.getElementById(boxId) || doc.getElementById("imgLook");//图片容器
  		this.openBox   = doc.getElementById(openBoxId) || doc.getElementById("imgOpen");//弹框容器
  		this.minWidth  = size ? size.minWidth  : 200;//尺寸-最小宽(宽高比大于等于1起作用)
@@ -19,7 +19,8 @@
  		this.delBtn    = "deleteBtn";//删除按钮
         this.downBtn   = "downloadBtn";//下载按钮
         this.prevBtn   = "prevBtn";//上一张按钮
- 		this.nextBtn   = "nextBtn";//下一张按钮
+        this.nextBtn   = "nextBtn";//下一张按钮
+ 		this.imgList   = ".imgList";//可预览项
  		this.close     = doc.getElementById(closeId) || doc.getElementById("imgClose");//关闭弹框按钮
         this.index     = 0;//获取当前显示的是第几张
         this.init();
@@ -44,7 +45,7 @@
               var _self = this;
               var ev = ev || window.event;
               var target = ev.target || ev.srcElement;
-              var lis = _self.box.querySelectorAll(".imgList");
+              var lis = _self.box.querySelectorAll(_self.imgList);
 
               for(var i=0;i<lis.length;i++){
                 if(lis[i]===target.parentNode.parentNode){
@@ -109,8 +110,7 @@
 
                 if(!!window.ActiveXObject || "ActiveXObject" in window)
                 {
-                    // alert("下载功能不支持IE浏览器！"); 
-                   
+                    alert("下载功能不支持IE浏览器！"); 
                 }
                 else
                 {  
@@ -193,7 +193,7 @@
         //上一张
         prevImg: function(){
             var _self = this;
-            var lis   = _self.box.querySelectorAll(".imgList");
+            var lis   = _self.box.querySelectorAll(_self.imgList);
             //如果不是第一张
             if(_self.index != 0){
                 _self.src   = lis[_self.index - 1].querySelector("img").src;
@@ -214,7 +214,7 @@
         //下一张
         nextImg: function(){
             var _self = this;
-            var lis     = _self.box.querySelectorAll(".imgList");
+            var lis     = _self.box.querySelectorAll(_self.imgList);
            //如果不是最后一张
            if(_self.index != lis.length - 1){
             _self.src   = lis[_self.index + 1].querySelector("img").src;
